@@ -1,19 +1,19 @@
-use omnipaxos_kv::simulated_clock::ClockState;
+use crate::simulated_clock::ClockState;
 use std::vec::Vec;
 use std::collections::HashMap;
 
 
-pub struct OneWayDelay {
-    sim_clock: *const ClockState,
+pub struct OWDNode {
+    sim_clock: ClockState,
     measured_latencies: HashMap<String, Vec<i64>>,
     reported_latencies: HashMap<String, i64>,
     fixed_delay: i64,
 }
 
-impl OneWayDelay {
-    pub fn new(cs: &ClockState, fd: i64) -> OneWayDelay {
-        return OneWayDelay{
-            sim_clock: ClockState,
+impl OWDNode {
+    pub fn new(cs: ClockState, fd: i64) -> OWDNode {
+        return OWDNode {
+            sim_clock: cs,
             measured_latencies: HashMap::new(),
             reported_latencies: HashMap::new(),
             fixed_delay: fd,

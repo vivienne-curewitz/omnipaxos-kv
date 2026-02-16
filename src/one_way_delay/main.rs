@@ -1,15 +1,16 @@
-mod one_way_delay;
 use omnipaxos_kv::simulated_clock::ClockState;
+use omnipaxos_kv::one_way_delay::OWDNode;
+
 
 fn main() {
-    let mut clock = ClockState::new(
+    let clock = ClockState::new(
         500,  // uncertainty: +/- 500μs
         2,    // drift_rate: 2μs per second
         1000000, // frequency: 1000000 μs (1 second) reset interval
         0     // base_offset
     );
 
-    let mut owd = OneWayDelay::new(
+    let owd = OWDNode::new(
         clock,
         30
     );

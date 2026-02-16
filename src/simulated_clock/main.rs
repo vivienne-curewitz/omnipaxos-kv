@@ -1,5 +1,4 @@
-mod simulated_clock;
-use simulated_clock::ClockState;
+use omnipaxos_kv::simulated_clock::ClockState;
 
 fn main() {
     let mut clock = ClockState::new(
