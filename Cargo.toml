@@ -30,3 +30,7 @@ path = "src/server/main.rs"
 [[bin]]
 name = "clock"
 path = "src/simulated_clock/main.rs"
+
+[[bin]]
+name = "owd"
+path = "src/one_way_delay/main.rs"
